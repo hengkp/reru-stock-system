@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FLAS RERU Products</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Hide the spinner controls for input type number */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* For Firefox */
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    /* Custom styles for tabs */
+    .tab-active {
+      border-bottom: 2px solid #6366F1;
+      color: #6366F1;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 items-center justify-center min-h-screen p-8">
+
+
+  <nav class="container mx-auto bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="https://http://flas.reru.ac.th/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="https://github.com/hengkp/img/logo_flas.jpg" class="h-8" alt="FLAS Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <p class="text-base font-bold text-left text-gray-800 mb-2">คณะศิลปศาสตร์และวิทยาศาสตร์</p>
+            <p class="text-xs font-semibold text-left text-gray-600">มหาวิทยาลัยราชภัฏร้อยเอ็ด</p>
+          </span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Pricing</a>
+          </li>
+          <li>
+            <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Alert Modal -->
+  <div id="alertModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-1/3 max-w-md mx-auto">
+      <h2 id="alertMessage" class="text-xl font-semibold mb-4 text-center"><!-- Dynamic display text will be inserted here --></h2>
+      <button onclick="closeAlertModal()" class="w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">ปิด</button>
+    </div>
+  </div>
+
+  <div class="container mx-auto m-2 p-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg">
+    <div class="bg-white p-4 rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">ผลิตภัณฑ์คณะศิลปศาสตร์และวิทยาศาสตร์</h1>
+      <h2 class="text-xl font-semibold text-center text-gray-600">มหาวิทยาลัยราชภัฏร้อยเอ็ด</h2>
+    </div>
+  </div>
+
+  <div class="container mx-auto m-2 bg-white p-6 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-4">ระบบจัดเก็บและขายสินค้า</h1>
+    <div class="mb-4 flex justify-center space-x-4">
+      <button onclick="showAddProductForm()" class="p-2 bg-blue-500 text-white rounded hover:bg-blue-700">จัดการสินค้า</button>
+      <button onclick="showNewSaleForm()" class="p-2 bg-green-500 text-white rounded hover:bg-green-700">ขายสินค้า</button>
+      <button onclick="showSummary()" class="p-2 bg-orange-500 text-white rounded hover:bg-orange-700">สรุปยอดการขาย</button>
+    </div>
+
+    <div id="add-product-form" class="hidden bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-xl font-semibold mb-4">เพิ่มสินค้าใหม่</h2>
+      <form id="product-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex flex-col">
+          <label for="productID" class="text-gray-700">รหัสสินค้า</label>
+          <input type="number" id="productID" placeholder="รหัสสินค้า" class="p-2 border rounded" readonly>
+        </div>
+        <div class="flex flex-col">
+          <label for="productName" class="text-gray-700">ชื่อสินค้า</label>
+          <input type="text" id="productName" placeholder="ชื่อสินค้า" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col">
+          <label for="category" class="text-gray-700">หมวดหมู่</label>
+          <select id="category" class="p-2 border rounded h-10">
+            <!-- Dynamic options will be inserted here -->
+          </select>
+        </div>
+        <div class="flex flex-col">
+          <label for="size" class="text-gray-700">ขนาด</label>
+          <input type="text" id="size" placeholder="ขนาด" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col">
+          <label for="costPrice" class="text-gray-700">ราคาต้นทุน</label>
+          <input type="number" id="costPrice" placeholder="0" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col">
+          <label for="salePrice" class="text-gray-700">ราคาขาย</label>
+          <input type="number" id="salePrice" placeholder="0" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col">
+          <label for="stockAmount" class="text-gray-700">จำนวนในคลัง</label>
+          <input type="number" id="stockAmount" placeholder="จำนวนในคลัง" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col">
+          <label for="unit" class="text-gray-700">หน่วยนับ</label>
+          <input type="text" id="unit" placeholder="ชิ้น" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col">
+          <label for="recordDate" class="text-gray-700">วันที่บันทึกข้อมูล</label>
+          <input type="date" id="recordDate" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col">
+          <label for="manufacturer" class="text-gray-700">ชื่อผู้ผลิต</label>
+          <input type="text" id="manufacturer" placeholder="ชื่อผู้ผลิต" class="p-2 border rounded">
+        </div>
+        <div class="flex flex-col col-span-2">
+          <label for="note" class="text-gray-700">หมายเหตุ</label>
+          <textarea id="note" placeholder="หมายเหตุ" class="p-2 border rounded"></textarea>
+        </div>
+        <button type="button" onclick="addProduct()" class="col-span-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-700">เพิ่มสินค้า</button>
+      </form>
+    </div>
+
+    <div id="new-sale-form" class="hidden">
+      <h2 class="text-xl font-semibold">ขายสินค้า</h2>
+      <form id="sale-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" id="orderID" placeholder="หมายเลขคำสั่งซื้อ" class="p-2 border rounded" readonly>
+        <select id="saleType" class="p-2 border rounded">
+          <option value="หน้าร้าน">หน้าร้าน</option>
+          <option value="ออนไลน์">ออนไลน์</option>
+        </select>
+        <div class="relative">
+          <select id="customerName" class="p-2 border rounded"></select>
+          <button type="button" onclick="showAddCustomerForm()" class="absolute right-0 top-0 mt-2 mr-2 p-1 bg-blue-500 text-white rounded hover:bg-blue-700">+</button>
+        </div>
+        <input type="text" id="customerTel" placeholder="เบอร์โทรลูกค้า" class="p-2 border rounded">
+        <input type="text" id="searchProduct" placeholder="ค้นหาสินค้า" class="p-2 border rounded">
+        <button type="button" onclick="addProductToSale()" class="p-2 bg-green-500 text-white rounded hover:bg-green-700">เพิ่มสินค้าที่ขาย</button>
+      </form>
+      <table id="sale-table" class="min-w-full bg-white mt-4">
+        <thead>
+          <tr>
+            <th class="px-4 py-2 border">รหัสสินค้า</th>
+            <th class="px-4 py-2 border">ชื่อสินค้า</th>
+            <th class="px-4 py-2 border">จำนวน</th>
+            <th class="px-4 py-2 border">ราคาต่อหน่วย</th>
+            <th class="px-4 py-2 border">รวม</th>
+          </tr>
+        </thead>
+        <tbody id="sale-table-body">
+          <!-- Dynamic content will be inserted here -->
+        </tbody>
+      </table>
+      <div class="mt-4">
+        <p>ยอดรวมทั้งหมด: <span id="totalPrice">0</span> บาท</p>
+        <p>ยอดรวมทั้งหมด (ภาษาไทย): <span id="totalPriceThai">ศูนย์บาทถ้วน</span></p>
+      </div>
+      <button type="button" onclick="confirmSale()" class="p-2 bg-blue-500 text-white rounded hover:bg-blue-700 mt-4">ยืนยันการขาย</button>
+    </div>
+
+    <div id="add-customer-form" class="hidden">
+      <h2 class="text-xl font-semibold">เพิ่มลูกค้าใหม่</h2>
+      <form id="customer-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input type="text" id="customerID" placeholder="รหัสลูกค้า" class="p-2 border rounded">
+        <input type="text" id="customerNameInput" placeholder="ชื่อลูกค้า" class="p-2 border rounded">
+        <input type="text" id="customerTelInput" placeholder="เบอร์ติดต่อ" class="p-2 border rounded">
+        <input type="text" id="address1" placeholder="ที่อยู่บรรทัด 1" class="p-2 border rounded">
+        <input type="text" id="address2" placeholder="ที่อยู่บรรทัด 2" class="p-2 border rounded">
+        <input type="text" id="subdistrict" placeholder="ตำบล" class="p-2 border rounded">
+        <input type="text" id="district" placeholder="อำเภอ" class="p-2 border rounded">
+        <input type="text" id="province" placeholder="จังหวัด" class="p-2 border rounded">
+        <input type="text" id="zipcode" placeholder="รหัสไปรษณีย์" class="p-2 border rounded">
+        <button type="button" onclick="addCustomer()" class="col-span-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-700">เพิ่มลูกค้า</button>
+      </form>
+    </div>
+    <div id="summary" class="hidden">
+      <h2 class="text-xl font-semibold">สรุปยอดการขาย</h2>
+      <!-- Display the sale summary here -->
+    </div>
+  </div>
+
+  <!-- Tabs Section -->
+  <div class="container mx-auto m-2 bg-white p-6 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-bold mb-4">รายการสินค้า</h1>
+    <div class="flex justify-center space-x-4 mb-4">
+      <button id="allStocksTab" class="px-4 py-2 mr-2 text-gray-600 border-b-2 border-transparent hover:border-blue-500" onclick="showTab('allStocks')">
+        สินค้าคงคลัง <span id="allStocksBadge" class="ml-2 bg-blue-200 text-blue-600 rounded-full px-2">0</span>
+      </button>
+      <button id="lowStockTab" class="px-4 py-2 mr-2 text-gray-600 border-b-2 border-transparent hover:border-orange-500" onclick="showTab('lowStock')">
+        สินค้าใกล้หมด <span id="lowStockBadge" class="ml-2 bg-orange-200 text-orange-600 rounded-full px-2">0</span>
+      </button>
+      <button id="outStockTab" class="px-4 py-2 text-gray-600 border-b-2 border-transparent hover:border-red-500" onclick="showTab('outStock')">
+        สินค้าหมดสต๊อก <span id="outStockBadge" class="ml-2 bg-red-200 text-red-600 rounded-full px-2">0</span>
+      </button>
+    </div>
+    
+    <div id="allStocksPanel" class="tab-panel">
+      <h3 class="text-lg font-semibold">สินค้าคงคลัง</h3>
+      <div class="mb-4 flex justify-end items-center">
+        <label for="allStocksPageSize" class="mr-2">แสดงผลต่อหน้า:</label>
+        <select id="allStocksPageSize" class="p-2 border rounded" onchange="loadProducts()">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+      <table id="AllStocks" class="min-w-full bg-white rounded-lg shadow-inner">
+        <thead>
+          <tr>
+            <th class="px-4 py-2 border">รหัสสินค้า</th>
+            <th class="px-4 py-2 border">ชื่อสินค้า</th>
+            <th class="px-4 py-2 border">หมวดหมู่</th>
+            <th class="px-4 py-2 border">ราคาขาย (บาท)</th>
+            <th class="px-4 py-2 border">จำนวนในคลัง</th>
+          </tr>
+        </thead>
+        <tbody id="allStocksTable" class="bg-blue-100">
+          <!-- Dynamic content will be inserted here -->
+        </tbody>
+      </table>
+      <div class="flex items-center justify-center space-x-4 mt-4">
+        <button id="allStocksPrev" class="px-4 py-2 bg-blue-400 text-white rounded-md hover:bg-blue-600 transition duration-300 ease-in-out" onclick="prevPage('allStocks')" disabled>ก่อนหน้า</button>
+        <span class="flex items-center space-x-2">
+          <input id="allStocksPage" type="number" class="w-12 text-center border border-blue-300 rounded-md p-1" onchange="updatePage('allStocks')" value="1">
+          <span>จาก</span>
+          <span id="allStocksTotalPages" class="ml-1">0</span>
+          <span>หน้า</span>
+        </span>
+        <button id="allStocksNext" class="px-4 py-2 bg-blue-400 text-white rounded-md hover:bg-blue-600 transition duration-300 ease-in-out" onclick="nextPage('allStocks')" disabled>ถัดไป</button>
+      </div>
+    </div>
+    
+    <div id="lowStockPanel" class="tab-panel hidden">
+      <h3 class="text-lg font-semibold">สินค้าใกล้หมด (น้อยกว่า 5 ชิ้น)</h3>
+      <div class="mb-4 flex justify-end items-center">
+        <label for="lowStockPageSize" class="mr-2">แสดงผลต่อหน้า:</label>
+        <select id="lowStockPageSize" class="p-2 border rounded" onchange="loadLowStockWarning()">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+      <table id="lowStockWarning" class="min-w-full bg-white rounded-lg shadow-inner">
+        <thead>
+          <tr>
+            <th class="px-4 py-2 border">รหัสสินค้า</th>
+            <th class="px-4 py-2 border">ชื่อสินค้า</th>
+            <th class="px-4 py-2 border">หมวดหมู่</th>
+            <th class="px-4 py-2 border">ราคาขาย (บาท)</th>
+            <th class="px-4 py-2 border">จำนวนในคลัง</th>
+          </tr>
+        </thead>
+        <tbody id="lowStockTable" class="bg-orange-100">
+          <!-- Dynamic content will be inserted here -->
+        </tbody>
+      </table>
+      <div class="flex items-center justify-center space-x-4 mt-4">
+        <button id="lowStockPrev" class="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-700 transition duration-300 ease-in-out" onclick="prevPage('lowStock')" disabled>ก่อนหน้า</button>
+        <span class="flex items-center space-x-2">
+          <input id="lowStockPage" type="number" class="w-12 text-center border border-orange-300 rounded-md p-1" onchange="updatePage('lowStock')" value="1">
+          <span>จาก</span>
+          <span id="lowStockTotalPages" class="ml-1">0</span>
+          <span>หน้า</span>
+        </span>
+        <button id="lowStockNext" class="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-700 transition duration-300 ease-in-out" onclick="nextPage('lowStock')" disabled>ถัดไป</button>
+      </div>
+    </div>
+    
+    <div id="outStockPanel" class="tab-panel hidden">
+      <h3 class="text-lg font-semibold">สินค้าหมดสต๊อก</h3>
+      <div class="mb-4 flex justify-end items-center">
+        <label for="outStockPageSize" class="mr-2">แสดงผลต่อหน้า:</label>
+        <select id="outStockPageSize" class="p-2 border rounded" onchange="loadOutStockWarning()">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+      <table id="outStockWarning" class="min-w-full bg-white rounded-lg shadow-inner">
+        <thead>
+          <tr>
+            <th class="px-4 py-2 border">รหัสสินค้า</th>
+            <th class="px-4 py-2 border">ชื่อสินค้า</th>
+            <th class="px-4 py-2 border">หมวดหมู่</th>
+            <th class="px-4 py-2 border">ราคาขาย (บาท)</th>
+            <th class="px-4 py-2 border">จำนวนในคลัง</th>
+          </tr>
+        </thead>
+        <tbody id="outStockTable" class="bg-red-100">
+          <!-- Dynamic content will be inserted here -->
+        </tbody>
+      </table>
+      <div class="flex items-center justify-center space-x-4 mt-4">
+        <button id="outStockPrev" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700 transition duration-300 ease-in-out" onclick="prevPage('outStock')" disabled>ก่อนหน้า</button>
+        <span class="flex items-center space-x-2">
+          <input id="outStockPage" type="number" class="w-12 text-center border border-red-300 rounded-md p-1" onchange="updatePage('outStock')" value="1">
+          <span>จาก</span>
+          <span id="outStockTotalPages" class="ml-1">0</span>
+          <span>หน้า</span>
+        </span>
+        <button id="outStockNext" class="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700 transition duration-300 ease-in-out" onclick="nextPage('outStock')" disabled>ถัดไป</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="container mx-auto bg-white rounded-lg shadow dark:bg-gray-800">
+      <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://hengkp.wixsite.com/portfolio" class="hover:underline">Heng</a>. All Rights Reserved.</span>
+      </div>
+  </footer>
+
+  <script>
+    async function showAddProductForm() {
+      const addProductForm = document.getElementById('add-product-form');
+      if (addProductForm.classList.contains('hidden')) {
+        addProductForm.classList.remove('hidden');
+      } else {
+        addProductForm.classList.add('hidden');
+      }
+      document.getElementById('new-sale-form').classList.add('hidden');
+      document.getElementById('add-customer-form').classList.add('hidden');
+      document.getElementById('summary').classList.add('hidden');
+      generateProductID();
+      loadCategoryDropdown();
+    }
+
+    async function showNewSaleForm() {
+      const newSaleForm = document.getElementById('new-sale-form');
+      if (newSaleForm.classList.contains('hidden')) {
+        newSaleForm.classList.remove('hidden');
+      } else {
+        newSaleForm.classList.add('hidden');
+      }
+      document.getElementById('add-product-form').classList.add('hidden');
+      document.getElementById('add-customer-form').classList.add('hidden');
+      document.getElementById('summary').classList.add('hidden');
+      generateOrderID();
+      loadCustomerDropdown();
+    }
+
+    async function showAddCustomerForm() {
+      const addCustomerForm = document.getElementById('add-customer-form');
+      if (addCustomerForm.classList.contains('hidden')) {
+        addCustomerForm.classList.remove('hidden');
+      } else {
+        addCustomerForm.classList.add('hidden');
+      }
+      document.getElementById('add-product-form').classList.add('hidden');
+      document.getElementById('new-sale-form').classList.add('hidden');
+            document.getElementById('summary').classList.add('hidden');
+    }
+
+    async function showSummary() {
+      const summaryForm = document.getElementById('summary');
+      if (summaryForm.classList.contains('hidden')) {
+        summaryForm.classList.remove('hidden');
+      } else {
+        summaryForm.classList.add('hidden');
+      }
+      document.getElementById('add-customer-form').classList.add('hidden');
+      document.getElementById('add-product-form').classList.add('hidden');
+      document.getElementById('new-sale-form').classList.add('hidden');
+    }
+
+    function showAlertModal(message) {
+      document.getElementById('alertMessage').textContent = message;
+      document.getElementById('alertModal').classList.remove('hidden');
+    }
+
+    function closeAlertModal() {
+      loadProducts();
+      loadLowStockWarning();
+      loadOutStockWarning();
+      document.getElementById('alertModal').classList.add('hidden');
+    }
+
+    async function generateProductID() {
+      google.script.run.withSuccessHandler(function(productID) {
+        document.getElementById('productID').value = productID;
+      }).getNewProductID();
+    }
+
+    async function loadCategoryDropdown() {
+      google.script.run.withSuccessHandler(function(categories) {
+          const categoryDropdown = document.getElementById('category');
+          categoryDropdown.innerHTML = '';
+          categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categoryDropdown.appendChild(option);
+          });
+        }).getCategoryOptions();
+    }
+
+    async function generateOrderID() {
+      google.script.run.withSuccessHandler(function(orderID) {
+        document.getElementById('orderID').value = orderID;
+      }).getNewOrderID();
+    }
+
+    async function loadCustomerDropdown() {
+      google.script.run.withSuccessHandler(function(customers) {
+        const customerDropdown = document.getElementById('customerName');
+        customerDropdown.innerHTML = '';
+        customers.forEach(customer => {
+          const option = document.createElement('option');
+          option.value = customer[0];
+          option.textContent = customer[1];
+          customerDropdown.appendChild(option);
+        });
+      }).getCustomers();
+    }
+
+    async function addProductToSale() {
+      const searchProduct = document.getElementById('searchProduct').value;
+      google.script.run.withSuccessHandler(function(product) {
+        const tableBody = document.getElementById('sale-table-body');
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="px-4 py-2 border">${product[0]}</td>
+          <td class="px-4 py-2 border">${product[2]}</td>
+          <td class="px-4 py-2 border"><input type="number" class="amount" value="1" onchange="updateTotal(this)" /></td>
+          <td class="px-4 py-2 border">${product[8]}</td>
+          <td class="px-4 py-2 border">${product[8]}</td>
+        `;
+        tableBody.appendChild(row);
+        updateTotal();
+      }).getProductByName(searchProduct);
+    }
+
+    function updateTotal(element) {
+      const tableBody = document.getElementById('sale-table-body');
+      let total = 0;
+      tableBody.querySelectorAll('tr').forEach(row => {
+        const amount = row.querySelector('.amount').value;
+        const price = row.cells[3].textContent;
+        const totalCell = row.cells[4];
+        const totalRow = amount * price;
+        totalCell.textContent = totalRow;
+        total += totalRow;
+      });
+      document.getElementById('totalPrice').textContent = total;
+      google.script.run.withSuccessHandler(function(totalInThai) {
+        document.getElementById('totalPriceThai').textContent = totalInThai;
+      }).convertNumberToThai(total);
+    }
+
+    async function addProduct() {
+      const productID = document.getElementById('productID').value;
+      const productName = document.getElementById('productName').value;
+      const category = document.getElementById('category').value;
+      const size = document.getElementById('size').value;
+      const unit = document.getElementById('unit').value;
+      const costPrice = document.getElementById('costPrice').value;
+      const salePrice = document.getElementById('salePrice').value;
+      const stockAmount = document.getElementById('stockAmount').value;
+      const recordDate = document.getElementById('recordDate').value;
+      const manufacturer = document.getElementById('manufacturer').value;
+      const note = document.getElementById('note').value;
+
+      google.script.run.addProductToSheet(productID, productName, category, size, unit, costPrice, salePrice, stockAmount, recordDate, manufacturer, note);
+
+      document.getElementById('product-form').reset();
+      showAlertModal('บันทึกข้อมูลสินค้าใหม่เรียบร้อย');
+    }
+
+    async function addCustomer() {
+      const customerID = document.getElementById('customerID').value;
+      const customerName = document.getElementById('customerNameInput').value;
+      const customerTel = document.getElementById('customerTelInput').value;
+      const address1 = document.getElementById('address1').value;
+      const address2 = document.getElementById('address2').value;
+      const subdistrict = document.getElementById('subdistrict').value;
+      const district = document.getElementById('district').value;
+      const province = document.getElementById('province').value;
+      const zipcode = document.getElementById('zipcode').value;
+
+      google.script.run.addCustomerToSheet(customerID, customerName, customerTel, address1, address2, subdistrict, district, province, zipcode);
+
+      document.getElementById('customer-form').reset();
+      showNewSaleForm();
+    }
+
+    async function confirmSale() {
+      const orderID = document.getElementById('orderID').value;
+      const saleType = document.getElementById('saleType').value;
+      const customerName = document.getElementById('customerName').value;
+      const customerTel = document.getElementById('customerTel').value;
+      const totalPrice = document.getElementById('totalPrice').textContent;
+
+      const saleItems = [];
+      document.getElementById('sale-table-body').querySelectorAll('tr').forEach(row => {
+        const productID = row.cells[0].textContent;
+        const amount = row.querySelector('.amount').value;
+        const price = row.cells[3].textContent;
+        saleItems.push({ productID, amount, price });
+      });
+
+      google.script.run.confirmSale(orderID, saleType, customerName, customerTel, totalPrice, saleItems);
+      showAlertModal('บันทึกการขายสำเร็จ!');
+      document.getElementById('sale-form').reset();
+      document.getElementById('sale-table-body').innerHTML = '';
+      document.getElementById('totalPrice').textContent = '0';
+      document.getElementById('totalPriceThai').textContent = 'ศูนย์บาทถ้วน';
+    }
+    
+    let allStocksCurrentPage = 1;
+    let lowStockCurrentPage = 1;
+    let outStockCurrentPage = 1;
+
+    function showTab(tabName) {
+      const allStocksTab = document.getElementById('allStocksTab');
+      const lowStockTab = document.getElementById('lowStockTab');
+      const outStockTab = document.getElementById('outStockTab');
+      const allStocksPanel = document.getElementById('allStocksPanel');
+      const lowStockPanel = document.getElementById('lowStockPanel');
+      const outStockPanel = document.getElementById('outStockPanel');
+
+      allStocksTab.classList.remove('tab-active');
+      lowStockTab.classList.remove('tab-active');
+      outStockTab.classList.remove('tab-active');
+      allStocksTab.classList.remove('text-blue-600');
+      lowStockTab.classList.remove('text-orange-600');
+      outStockTab.classList.remove('text-red-600');
+      allStocksTab.classList.remove('text-gray-600');
+      lowStockTab.classList.remove('text-gray-600');
+      outStockTab.classList.remove('text-gray-600');
+      allStocksTab.classList.remove('border-blue-500');
+      lowStockTab.classList.remove('border-orange-500');
+      outStockTab.classList.remove('border-red-500');
+      allStocksPanel.classList.add('hidden');
+      lowStockPanel.classList.add('hidden');
+      outStockPanel.classList.add('hidden');
+
+      if (tabName === 'allStocks') {
+        allStocksTab.classList.add('tab-active');
+        allStocksTab.classList.add('text-blue-600');
+        allStocksTab.classList.add('border-blue-500');
+        allStocksPanel.classList.remove('hidden');
+        lowStockTab.classList.add('text-gray-600');
+        outStockTab.classList.add('text-gray-600');
+      } else if (tabName === 'lowStock') {
+        lowStockTab.classList.add('tab-active');
+        lowStockTab.classList.add('text-orange-600');
+        lowStockTab.classList.add('border-orange-500');
+        lowStockPanel.classList.remove('hidden');
+        allStocksTab.classList.add('text-gray-600');
+        outStockTab.classList.add('text-gray-600');
+      } else if (tabName === 'outStock') {
+        outStockTab.classList.add('tab-active');
+        outStockTab.classList.add('text-red-600');
+        outStockTab.classList.add('border-red-500');
+        outStockPanel.classList.remove('hidden');
+        allStocksTab.classList.add('text-gray-600');
+        lowStockTab.classList.add('text-gray-600');
+      }
+    }
+
+    function updatePagination(totalItems, currentPage, pageSize, totalSpan, pageSpan, prevButton, nextButton, pageBadge) {
+      const totalPages = Math.ceil(totalItems / pageSize);
+      document.getElementById(pageBadge).textContent = totalItems;
+      document.getElementById(totalSpan).textContent = totalPages;
+      document.getElementById(pageSpan).value = currentPage; // Ensure this is an input element
+
+      if (currentPage > 1) {
+        document.getElementById(prevButton).disabled = false;
+      } else {
+        document.getElementById(prevButton).disabled = true;
+      }
+
+      if (currentPage < totalPages) {
+        document.getElementById(nextButton).disabled = false;
+      } else {
+        document.getElementById(nextButton).disabled = true;
+      }
+    }
+
+    async function loadProducts() {
+      const pageSize = parseInt(document.getElementById('allStocksPageSize').value);
+      google.script.run.withSuccessHandler(function(productItems) {
+        const totalItems = productItems.length;
+        const start = (allStocksCurrentPage - 1) * pageSize;
+        const end = allStocksCurrentPage * pageSize;
+        const allStocksTable = document.querySelector('#AllStocks tbody');
+        allStocksTable.innerHTML = '';
+
+        productItems.slice(start, end).forEach(item => {
+          const row = document.createElement('tr');
+          row.classList.add('border-b', 'border-blue-200', 'text-blue-600');
+          row.innerHTML = `
+            <td class="px-4 py-2 text-center">${item[0]}</td>
+            <td class="px-4 py-2">${item[1]}</td>
+            <td class="px-4 py-2 text-center">${item[2]}</td>
+            <td class="px-4 py-2 text-center">${item[6]}</td>
+            <td class="px-4 py-2 text-center">${item[7]}</td>
+          `;
+          allStocksTable.appendChild(row);
+        });
+
+        updatePagination(totalItems, allStocksCurrentPage, pageSize, 'allStocksTotalPages', 'allStocksPage', 'allStocksPrev', 'allStocksNext','allStocksBadge');
+      }).getProductsItems();
+    }
+
+    async function loadLowStockWarning() {
+      const pageSize = parseInt(document.getElementById('lowStockPageSize').value);
+      google.script.run.withSuccessHandler(function(lowStockItems) {
+        const totalItems = lowStockItems.length;
+        const start = (lowStockCurrentPage - 1) * pageSize;
+        const end = lowStockCurrentPage * pageSize;
+        const lowStockTable = document.querySelector('#lowStockWarning tbody');
+        lowStockTable.innerHTML = '';
+
+        lowStockItems.slice(start, end).forEach(item => {
+          const row = document.createElement('tr');
+          row.classList.add('border-b', 'border-orange-200', 'text-orange-600');
+          row.innerHTML = `
+            <td class="px-4 py-2 text-center">${item[0]}</td>
+            <td class="px-4 py-2">${item[1]}</td>
+            <td class="px-4 py-2 text-center">${item[2]}</td>
+            <td class="px-4 py-2 text-center">${item[6]}</td>
+            <td class="px-4 py-2 text-center">${item[7]}</td>
+          `;
+          lowStockTable.appendChild(row);
+        });
+
+        updatePagination(totalItems, lowStockCurrentPage, pageSize, 'lowStockTotalPages', 'lowStockPage', 'lowStockPrev', 'lowStockNext', 'lowStockBadge');
+      }).getLowStockItems();
+    }
+
+    async function loadOutStockWarning() {
+      const pageSize = parseInt(document.getElementById('outStockPageSize').value);
+      google.script.run.withSuccessHandler(function(outStockItems) {
+        const totalItems = outStockItems.length;
+        const start = (outStockCurrentPage - 1) * pageSize;
+        const end = outStockCurrentPage * pageSize;
+        const outStockTable = document.querySelector('#outStockWarning tbody');
+        outStockTable.innerHTML = '';
+
+        outStockItems.slice(start, end).forEach(item => {
+          const row = document.createElement('tr');
+          row.classList.add('border-b', 'border-red-200', 'text-red-600');
+          row.innerHTML = `
+            <td class="px-4 py-2 text-center">${item[0]}</td>
+            <td class="px-4 py-2">${item[1]}</td>
+            <td class="px-4 py-2 text-center">${item[2]}</td>
+            <td class="px-4 py-2 text-center">${item[6]}</td>
+            <td class="px-4 py-2 text-center">${item[7]}</td>
+          `;
+          outStockTable.appendChild(row);
+        });
+
+        updatePagination(totalItems, outStockCurrentPage, pageSize, 'outStockTotalPages', 'outStockPage', 'outStockPrev', 'outStockNext', 'outStockBadge');
+      }).getOutStockItems();
+    }
+
+    function updatePage(tabName) {
+      const totalPages = parseInt(document.getElementById(tabName + 'TotalPages').textContent);
+      const pageInput = document.getElementById(tabName + 'Page');
+      let newPage = parseInt(pageInput.value);
+
+      if (newPage < 1) {
+        newPage = 1;
+      } else if (newPage > totalPages) {
+        newPage = totalPages;
+      }
+
+      pageInput.value = newPage;
+
+      if (tabName === 'allStocks') {
+        allStocksCurrentPage = newPage;
+        loadProducts();
+      } else if (tabName === 'lowStock') {
+        lowStockCurrentPage = newPage;
+        loadLowStockWarning();
+      } else if (tabName === 'outStock') {
+        outStockCurrentPage = newPage;
+        loadOutStockWarning();
+      }
+    }
+
+    function prevPage(tabName) {
+      if (tabName === 'allStocks' && allStocksCurrentPage > 1) {
+        allStocksCurrentPage--;
+        loadProducts();
+      } else if (tabName === 'lowStock' && lowStockCurrentPage > 1) {
+        lowStockCurrentPage--;
+        loadLowStockWarning();
+      } else if (tabName === 'outStock' && outStockCurrentPage > 1) {
+        outStockCurrentPage--;
+        loadOutStockWarning();
+      }
+    }
+
+    function nextPage(tabName) {
+      if (tabName === 'allStocks') {
+        allStocksCurrentPage++;
+        loadProducts();
+      } else if (tabName === 'lowStock') {
+        lowStockCurrentPage++;
+        loadLowStockWarning();
+      } else if (tabName === 'outStock') {
+        outStockCurrentPage++;
+        loadOutStockWarning();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      loadProducts();
+      loadLowStockWarning();
+      loadOutStockWarning();
+      showTab('allStocks'); // Show all stocks tab by default
+    });
+
+  </script>
+</body>
+</html>
